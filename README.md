@@ -1,27 +1,71 @@
-# Underdog Android Take Home Challenge
+# SportsApp
 
-This is a very basic application written in Kotlin, which loads and displays data from The Sports DB leveraging
-common libraries (e.g. Retrofit).
+A modern Android application that displays sports leagues and their teams using data from The Sports DB API. This app is built with Kotlin and Jetpack Compose, following modern Android development best practices.
 
-Also provided below is a list of tasks to complete. Some are required, while the rest are completely optional.
+## Features
 
-## Instructions
-- Please spend no more than 2 hours on this assignment.
-- Given you are only expected to spend up to 2 hours on this project, we only expect you to complete
-  the required tasks and 1-2 optional tasks (depending on the ones you opt to do).
-- After completing your tasks within the allotted time, please take a couple minutes to answer the questions in `Thoughts.md`.
-- To submit, zip your project and upload to Greenhouse
+- View a list of sports leagues from around the world
+- Tap on a league to see the teams that participate in it
+- Modern, animated UI with Material 3 design
+- Offline capability with local caching (data refreshes weekly)
+- Clean architecture pattern for scalability and maintainability
 
-## Tasks to complete
-### Required
-(Recommended to complete in order)
-1. After a recent change, the app has begun crashing on launch. Identify and fix the crash so the application will launch as expected.
-2. The list of Sports Leagues does not scroll. Improve the UX by enabling the page to scroll.
-3. Currently, nothing happens when a user clicks an item in the Sports Leagues list. When a user clicks on a league, the user should be able to see a list of the teams within that league below the league title.
+## Technology Stack
 
-### Optional
-(These are in no particular order, and it is entirely up to you which task(s) you opt to implement.)
-1. Refactor the codebase to leverage an architecture which will scale as the project grows.
-2. Implement a cache, assuming list(s) of leagues and teams do not change more often than 1/week on.
-3. Introduce Dependency Injection to the codebase.
-4. Improve the UI/UX in any way you see fit.
+- **Language**: Kotlin
+- **UI Framework**: Jetpack Compose
+- **Architecture**: MVVM + Clean Architecture
+- **Dependency Injection**: Hilt
+- **Networking**: Retrofit
+- **Local Storage**: Room
+- **Animation**: Compose animations
+- **Design**: Material 3
+
+## Architecture
+
+The app follows the Clean Architecture pattern with three main layers:
+
+1. **Presentation Layer**: Contains UI components and ViewModels
+- Composable UI components
+- ViewModels that expose UI state as StateFlow
+
+2. **Domain Layer**: Contains business logic
+- Use cases for different operations
+- Repository interfaces
+- Domain models
+
+3. **Data Layer**: Handles data access
+- Remote data source (API)
+- Local data source (Room database)
+- Repository implementations
+
+## Dependency Injection
+
+Hilt is used for dependency injection to provide:
+- Repository instances
+- Use cases
+- ViewModels
+- Database and DAO instances
+- API service
+
+## Caching Strategy
+
+The app implements an efficient caching mechanism that:
+- Stores league and team data locally using Room
+- Refreshes data from the network only when needed (weekly)
+- Provides a smooth offline experience
+
+## Screenshots
+
+[Screenshots would be inserted here]
+
+## Building and Running
+
+1. Clone the repository
+2. Open in Android Studio
+3. Sync Gradle files
+4. Run on an emulator or physical device
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
